@@ -1,0 +1,8 @@
+export const HOMEPAGE = "/"
+export const LOGIN = "/login"
+export const SIGNUP = "/signup"
+export const RECOVERY = "/recovery"
+export const SETUP = "/setup"
+export const SEARCH = "/searchcards"
+export const RANDOMIZER = "/random"
+export const PLAYGAME = "/play"

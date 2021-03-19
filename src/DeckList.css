@@ -1,0 +1,53 @@
+#deckMaker {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 70% 1fr;
+}
+
+#left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(164, 166, 189);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#cardGrid {
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(260px, 1fr) );
+    width: 1000px;
+}
+
+#save-and-reset {
+    text-align: center;
+    padding-top: 5px;
+}
+
+.deckGrid {
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(130px, 22%));
+    align-content: flex-start;
+    gap: 1rem;
+}
+
+#right {
+    background-color: rgb(16, 50, 70);
+    color: white;
+    height: 100%;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#right img {
+    width: 50%;
+    height: auto;
+    justify-content: center;
+}
+
+.deckCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
