@@ -9,6 +9,16 @@
       "email": "jordanjubenville@hotmail.com",
       "password": "CoderZ",
       "id": 4
+    },
+    {
+      "email": "sampleemail@gmail.com",
+      "password": "12345",
+      "id": 5
+    },
+    {
+      "email": "sample@hotmail.com",
+      "password": "5432109",
+      "id": 6
     }
   ],
   "decks": [
@@ -80,6 +90,127 @@
       ],
       "userID": 4,
       "id": 2
+    },
+    {
+      "name": "Ring of Fire",
+      "count": 8,
+      "cards": [
+        {
+          "name": "Flamewave Invoker",
+          "cmc": 3,
+          "power": "2",
+          "toughness": "2",
+          "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130378&type=card",
+          "id": "75578928-5ef3-5c91-87d8-e16191a1764e",
+          "count": 1
+        },
+        {
+          "name": "Duct Crawler",
+          "cmc": 1,
+          "power": "1",
+          "toughness": "1",
+          "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129579&type=card",
+          "id": "91ea7dc6-6498-5ecf-853f-0090ae00fbfb",
+          "count": 1
+        },
+        {
+          "name": "Snapping Drake",
+          "cmc": 4,
+          "power": "3",
+          "toughness": "2",
+          "id": "c0b0e7a5-4252-57f5-8ed0-399d08c0523f",
+          "count": 1
+        },
+        {
+          "name": "Kavu Climber",
+          "cmc": 5,
+          "power": "3",
+          "toughness": "3",
+          "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129511&type=card",
+          "id": "0bd38891-1832-51a7-a311-efd7a4442f77",
+          "count": 1
+        },
+        {
+          "name": "Contaminated Bond",
+          "cmc": 2,
+          "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129590&type=card",
+          "id": "2562f5f1-4de2-5834-a9ff-99092380d910",
+          "count": 1
+        },
+        {
+          "name": "Bloodrock Cyclops",
+          "cmc": 3,
+          "power": "3",
+          "toughness": "3",
+          "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130384&type=card",
+          "id": "9370dddd-ba64-53f9-8890-f391ee305326",
+          "count": 3
+        }
+      ],
+      "userID": 4,
+      "id": 3
+    },
+    {
+      "name": "",
+      "count": 17,
+      "cards": [
+        {
+          "name": "Sudden Impact",
+          "cmc": 4,
+          "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129750&type=card",
+          "id": "55492210-8ce6-553c-bdb7-573d824ca3c3",
+          "count": 2
+        },
+        {
+          "name": "Leonin Scimitar",
+          "cmc": 1,
+          "id": "16b6100b-950e-567e-a815-603b78f526e0",
+          "count": 5
+        },
+        {
+          "name": "Prodigal Pyromancer",
+          "cmc": 3,
+          "power": "1",
+          "toughness": "1",
+          "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=134752&type=card",
+          "id": "8b63019c-7755-502c-b599-b264b0b12c13",
+          "count": 1
+        },
+        {
+          "name": "Horseshoe Crab",
+          "cmc": 3,
+          "power": "1",
+          "toughness": "3",
+          "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129596&type=card",
+          "id": "4405f887-4eb7-5e3e-874d-1bfe79ec0ada",
+          "count": 1
+        },
+        {
+          "name": "Assassinate",
+          "cmc": 3,
+          "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=135194&type=card",
+          "id": "c6f3da33-27e8-51e4-9859-ef7cb3cdbe61",
+          "count": 1
+        },
+        {
+          "name": "Terramorphic Expanse",
+          "cmc": 0,
+          "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129881&type=card",
+          "id": "2137fcba-c774-53da-b051-321a3fcf8f2d",
+          "count": 1
+        },
+        {
+          "name": "Elvish Champion",
+          "cmc": 3,
+          "power": "2",
+          "toughness": "2",
+          "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129534&type=card",
+          "id": "85f9f23a-a3ec-527f-aec2-1f0afaba0235",
+          "count": 6
+        }
+      ],
+      "userID": 4,
+      "id": 4
     }
   ]
 }

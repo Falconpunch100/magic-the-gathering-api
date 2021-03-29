@@ -1,16 +1,15 @@
 import * as ROUTES from "./constants/routes.js"
 import { Route, Switch } from "react-router-dom"
 import Login from "./pages/Login.js"
-import DeckList from "./DeckList.js"
-import { useState } from "react"
+import  CardShop  from "./pages/CardShop"
+import Dashboard from "./pages/Dashboard.js"
 
 function App() {
-  let [deck, setDeck] = useState([])
-
   return (
     <main className="App">
       <Switch>
       <Route exact path={ROUTES.HOMEPAGE}>
+        <Dashboard></Dashboard>
       </Route>
       <Route path={ROUTES.LOGIN}>
         <Login isSignUpPage={false}></Login>
@@ -23,7 +22,7 @@ function App() {
       <Route path={ROUTES.SEARCH}>
       </Route>
       <Route path={ROUTES.RANDOMIZER}>
-        <DeckList deck={deck} setDeck={setDeck}></DeckList>
+        <CardShop></CardShop>
       </Route>
       <Route path={ROUTES.PLAYGAME}>
       </Route>

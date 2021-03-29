@@ -1,5 +1,5 @@
 import "./Login.css"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import { LOGIN, SIGNUP, RECOVERY } from "../constants/routes.js"
 import { useState } from "react"
 import { ValidateEmail } from "../utils"
@@ -9,17 +9,20 @@ function Login({ isSignUpPage }) {
     let [email, setEmail] = useState("")
     let [password, setPassword] = useState("")
     let emailSuccess = ValidateEmail(email)
+    let history = useHistory()
     async function handleSignup(e) {
         e.preventDefault()
         const response = await backEndAPI.post("/users", {
             email, password
         });
         console.log(response.data)
+        history.push("/login")
     }
     async function handleLogin(e) {
         e.preventDefault()
         const response = await backEndAPI.get(`/users?email=${email}&password=${password}`)
         console.log(response.data)
+        history.push("/")
     }
     return (
         <div className="container">

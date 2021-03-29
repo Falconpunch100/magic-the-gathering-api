@@ -1,5 +1,4 @@
 #deckMaker {
-    width: 100vw;
     height: 100vh;
     display: grid;
     grid-template-columns: 70% 1fr;
@@ -30,6 +29,7 @@
     grid-template-columns: repeat( auto-fit, minmax(130px, 22%));
     align-content: flex-start;
     gap: 1rem;
+    margin-top: 1rem;
 }
 
 #right {
@@ -37,6 +37,12 @@
     color: white;
     height: 100%;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-top: 2px lightgray solid;
+    padding: 1rem 0px;
+}
+
+#deckName {
+    text-align: center;
 }
 
 #right img {
