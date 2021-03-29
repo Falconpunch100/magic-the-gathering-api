@@ -31,7 +31,7 @@
     },
     {
       "name": "testDeck",
-      "count": 16,
+      "count": 24,
       "cards": [
         {
           "name": "Sudden Impact",
@@ -44,7 +44,7 @@
           "name": "Leonin Scimitar",
           "cmc": 1,
           "id": "16b6100b-950e-567e-a815-603b78f526e0",
-          "count": 4
+          "count": 3
         },
         {
           "name": "Prodigal Pyromancer",
@@ -69,7 +69,7 @@
           "cmc": 3,
           "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=135194&type=card",
           "id": "c6f3da33-27e8-51e4-9859-ef7cb3cdbe61",
-          "count": 1
+          "count": 10
         },
         {
           "name": "Terramorphic Expanse",
@@ -152,63 +152,8 @@
     },
     {
       "name": "",
-      "count": 17,
-      "cards": [
-        {
-          "name": "Sudden Impact",
-          "cmc": 4,
-          "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129750&type=card",
-          "id": "55492210-8ce6-553c-bdb7-573d824ca3c3",
-          "count": 2
-        },
-        {
-          "name": "Leonin Scimitar",
-          "cmc": 1,
-          "id": "16b6100b-950e-567e-a815-603b78f526e0",
-          "count": 5
-        },
-        {
-          "name": "Prodigal Pyromancer",
-          "cmc": 3,
-          "power": "1",
-          "toughness": "1",
-          "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=134752&type=card",
-          "id": "8b63019c-7755-502c-b599-b264b0b12c13",
-          "count": 1
-        },
-        {
-          "name": "Horseshoe Crab",
-          "cmc": 3,
-          "power": "1",
-          "toughness": "3",
-          "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129596&type=card",
-          "id": "4405f887-4eb7-5e3e-874d-1bfe79ec0ada",
-          "count": 1
-        },
-        {
-          "name": "Assassinate",
-          "cmc": 3,
-          "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=135194&type=card",
-          "id": "c6f3da33-27e8-51e4-9859-ef7cb3cdbe61",
-          "count": 1
-        },
-        {
-          "name": "Terramorphic Expanse",
-          "cmc": 0,
-          "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129881&type=card",
-          "id": "2137fcba-c774-53da-b051-321a3fcf8f2d",
-          "count": 1
-        },
-        {
-          "name": "Elvish Champion",
-          "cmc": 3,
-          "power": "2",
-          "toughness": "2",
-          "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129534&type=card",
-          "id": "85f9f23a-a3ec-527f-aec2-1f0afaba0235",
-          "count": 6
-        }
-      ],
+      "count": 0,
+      "cards": [],
       "userID": 4,
       "id": 4
     }

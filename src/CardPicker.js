@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import "./DeckList.css"
 import Card from "./Card.js"
 
-function CardPicker({ deck, setDeck }) {
+function CardPicker({ deckData, setDeckData }) {
     let [sets, setSets] = useState([])
     let [chosenSet, setChosenSet] = useState("")
     let [cards, setCards] = useState([])
@@ -19,7 +19,7 @@ function CardPicker({ deck, setDeck }) {
     }, []);
 
     function addCardToDeck(newCard) {
-        let copy = deck.slice()
+        let copy = deckData.cards.slice()
         let searchForCard = copy.find((deckCard) => {
             if (deckCard.id === newCard.id) {
                 return true;
@@ -36,11 +36,13 @@ function CardPicker({ deck, setDeck }) {
             newCard.count = 1;
             copy.push(newCard)
         }
-        setDeck(copy)
+        setDeckData({
+            ...deckData, cards: copy
+        })
     }
 
     function removeCardFromDeck(cardToRemove) {
-        let copy = deck.slice()
+        let copy = deckData.cards.slice()
         let searchForCard = copy.findIndex((deckCard) => {
             if (deckCard.id === cardToRemove.id) {
                 return true;
@@ -56,7 +58,9 @@ function CardPicker({ deck, setDeck }) {
                 copy.splice(searchForCard, 1)
             }
         }
-        setDeck(copy)
+        setDeckData({
+            ...deckData, cards: copy
+        })
     }
 
     async function handleSubmit(e) {

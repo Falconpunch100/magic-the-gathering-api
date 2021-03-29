@@ -6,3 +6,4 @@ export const SETUP = "/setup"
 export const SEARCH = "/searchcards"
 export const RANDOMIZER = "/random"
 export const PLAYGAME = "/play"
+export const EDIT = `/edit/:deckID`

@@ -3,15 +3,16 @@ import "./DeckList.css"
 import DeckCard from "./DeckCard.js"
 import backEndAPI from "../src/api/back-end.js"
 
-function DeckList({ deck, deckName}) {
+function DeckList({ deckData }) {
   let [name, setName] = useState("")
   let [myDeck, setMyDeck] = useState([])
   useEffect(() => {
-    setMyDeck(deck)
-  }, [deck])
+    setMyDeck(deckData.cards)
+    setName(deckData.name)
+  }, [deckData])
 
   function addCardToDeck(newCard) {
-    let copy = deck.slice()
+    let copy = myDeck.slice()
     let searchForCard = copy.find((deckCard) => {
       if (deckCard.id === newCard.id) {
         return true;
@@ -32,7 +33,7 @@ function DeckList({ deck, deckName}) {
   }
 
   function removeCardFromDeck(cardToRemove) {
-    let copy = deck.slice()
+    let copy = myDeck.slice()
     let searchForCard = copy.findIndex((deckCard) => {
       if (deckCard.id === cardToRemove.id) {
         return true;
@@ -56,7 +57,7 @@ function DeckList({ deck, deckName}) {
   }
 
   async function saveDeck(name) {
-    let copy = deck.slice()
+    let copy = myDeck.slice()
     let sum = 0;
     for (let i = 0; i < copy.length; i++) {
       const element = copy[i];
@@ -64,18 +65,23 @@ function DeckList({ deck, deckName}) {
     }
     let userID = 4;
     const finalDeck = { name, count: sum, cards: copy, userID }
-    const response = await backEndAPI.post("/decks", finalDeck)
-    console.log(response.data)
+    if (deckData.id > 0) {
+      const response = await backEndAPI.put(`/decks/${deckData.id}`, finalDeck)
+    }
+    else {
+      const response = await backEndAPI.post("/decks", finalDeck)
+    }
   }
 
   return (
       <div id="right">
-        <h2 id="deckName">{deckName}</h2>
+        <h2 id="deckName">{deckData.name}</h2>
         <div id="save-and-reset">
           <label>Deck Name</label>
           <input value={name} onChange={(e) => { setName(e.target.value) }} id="" placeholder="Please name your deck."></input>
           <button id="reset" onClick={resetDeck}>Reset</button>
           <button id="save" onClick={() => {saveDeck(name)}}>Save</button>
+          <button id="edit" onClick={() => {}}>Edit</button>
         </div>
 
         <section className="deckGrid">

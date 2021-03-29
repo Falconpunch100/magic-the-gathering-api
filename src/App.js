@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom"
 import Login from "./pages/Login.js"
 import  CardShop  from "./pages/CardShop"
 import Dashboard from "./pages/Dashboard.js"
+import EditPage from "./pages/EditPage.js"
 
 function App() {
   return (
@@ -25,6 +26,10 @@ function App() {
         <CardShop></CardShop>
       </Route>
       <Route path={ROUTES.PLAYGAME}>
+      </Route>
+      <Route path={ROUTES.EDIT}>
+      <EditPage>
+      </EditPage>
       </Route>
       <Route>404 Not Found.</Route>
       </Switch>
