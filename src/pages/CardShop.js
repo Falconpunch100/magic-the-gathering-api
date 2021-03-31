@@ -7,7 +7,7 @@ function CardShop() {
         name: "", count: 0, cards: [], userID: 4, id: -1
     })
     return (
-        <section id="deckMaker">
+        <section className="deckMaker">
             <CardPicker deckData={deckData} setDeckData={setDeckData}></CardPicker>
             <DeckList deckData={deckData} ></DeckList>
         </section>

@@ -2,6 +2,8 @@ import { useParams, useHistory } from "react-router-dom"
 import {useEffect, useState} from "react"
 import backEndAPI from "../api/back-end.js"
 import DeckList from "../DeckList.js"
+import SearchCard from "../SearchCard.js"
+
 function EditPage() {
     const {deckID} = useParams()
     useEffect(() => {
@@ -15,9 +17,10 @@ function EditPage() {
         name: "", count: 0, cards: [], userID: 4, id: -1
     })
     return(
-        <div>
+        <section className="deckMaker">
+            <SearchCard deckData={deckData} setDeckData={setDeckData}></SearchCard>
             <DeckList deckData={deckData}></DeckList>
-        </div>
+        </section>
     )
 }
 

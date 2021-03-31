@@ -1,22 +1,25 @@
+import { useState } from "react"
 import mtgAPI from "./api/mtg-api.js"
-import { useEffect, useState } from "react"
-import "./DeckList.css"
 import Card from "./Card.js"
+import Loader from "./Loader.js"
 
-function CardPicker({ deckData, setDeckData }) {
-    let [sets, setSets] = useState([])
-    let [chosenSet, setChosenSet] = useState("")
-    let [cards, setCards] = useState([])
-    useEffect(() => {
-        async function fetchSetNames() {
-            const response = await mtgAPI.get("sets")
-            let setNameArray = response.data.sets.map((set) => {
-                return { name: set.name, code: set.code };
-            })
-            setSets(setNameArray)
-        }
-        fetchSetNames();
-    }, []);
+function SearchCard({deckData, setDeckData}) {
+    const [cards, setCards] = useState([])
+    const [name, setName] = useState("")
+    const [desc, setDesc] = useState("")
+    const [vis, setVis] = useState(false)
+    async function filterCards() {
+        setVis(true)
+        const response = await mtgAPI.get("/cards", {
+            params: {
+                name: name, text: desc
+            }
+        })
+        const noDuplicates = removeDuplicates((card) => {return (card.name)}, response.data.cards)
+        console.log(noDuplicates)
+        setCards(noDuplicates)
+        setVis(false)
+    }
 
     function addCardToDeck(newCard) {
         let copy = deckData.cards.slice()
@@ -63,29 +66,27 @@ function CardPicker({ deckData, setDeckData }) {
         })
     }
 
-    async function handleSubmit(e) {
-        e.preventDefault()
-        const response = await mtgAPI.get(`sets/${chosenSet}/booster`)
-        console.log(response.data)
-        let cardArray = response.data.cards.map((card) => {
-            return { cmc: card.cmc, name: card.name, id: card.id, imageUrl: card.imageUrl, power: card.power, toughness: card.toughness, text: card.text }
-        })
-        setCards(cardArray)
+    function removeDuplicates(keyFn, array) {
+        var mySet = new Set();
+        return array.filter(function(x) {
+            var key = keyFn(x), isNew = !mySet.has(key);
+            if (isNew) mySet.add(key);
+            return isNew;
+        });
     }
 
     return (
-        <div id="left">
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="sets">Choose a set:</label>
-                <select name="sets" onChange={(e) => { setChosenSet(e.target.value) }}>
-                    <option value=""></option>
-                    {sets.map((set) => {
-                        return (
-                            <option key={set.code} value={set.code}>{set.name}</option>
-                        )
-                    })}
-                </select>
-                <button type="submit">Get Booster Pack</button>
+        <div>
+            <Loader visible={vis}></Loader>
+            <form onSubmit={(e) => {
+                e.preventDefault()
+                filterCards()
+            }}>
+                <label htmlFor="nameOfCard">Search Card Name</label>
+                <input type="text" placeholder="Name of Card" id="nameOfCard" value={name} onChange={(e) => { setName(e.target.value) }}></input>
+                <label htmlFor="cardDesc">Search Card Description</label>
+                <input type="text" placeholder="Card Description" id="cardDesc" value={desc} onChange={(e) => { setDesc(e.target.value) }}></input>
+                <button type="submit">Find Cards</button>
             </form>
             <div className="cardGrid">
                 {cards.map((card) => {
@@ -98,4 +99,4 @@ function CardPicker({ deckData, setDeckData }) {
     )
 }
 
-export default CardPicker;
+export default SearchCard;

@@ -1,4 +1,4 @@
-#deckMaker {
+.deckMaker {
     height: 100vh;
     display: grid;
     grid-template-columns: 70% 1fr;
@@ -13,7 +13,7 @@
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-#cardGrid {
+.cardGrid {
     display: grid;
     grid-template-columns: repeat( auto-fit, minmax(260px, 1fr) );
     width: 1000px;
