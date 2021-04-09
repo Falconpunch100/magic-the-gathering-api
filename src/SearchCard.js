@@ -76,7 +76,7 @@ function SearchCard({deckData, setDeckData}) {
     }
 
     return (
-        <div>
+        <div id="left">
             <Loader visible={vis}></Loader>
             <form onSubmit={(e) => {
                 e.preventDefault()

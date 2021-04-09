@@ -1,13 +1,24 @@
 #Lightbox {
     position: fixed;
+    display: none;
     z-index: 10;
     left: 50%;
     top: 50%;
     transform:translate(-50%, -50%);
     width: 500px;
-    height: 300px;
+    height: auto;
     background-color: rgb(255, 255, 255);
-    color: red;
+    color: rgb(12, 14, 48);
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .info {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
   }
 
 .lightbox-data {

@@ -1,37 +1,38 @@
 import "./Card.css"
 import generic from "./generic-card-front.jpg"
 import Lightbox from "./Lightbox.js"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 
 function Card({ addCardToDeck, removeCardFromDeck, name, cmc, power, toughness, imageUrl, id, text }) {
+    const trueImageUrl = imageUrl === undefined ? generic : imageUrl;
     const [lightVis, setLightVis] = useState(false)
+    function dismissFunction() {
+        setLightVis(false)
+    }
     useEffect(() => {
         if (lightVis === true) {
-            document.getElementById("root").style.filter = "blur(3px)"
+            document.getElementById("root").style.filter = "blur(3px) brightness(50%)"
+            document.getElementById("Lightbox").style.display = "initial"
+
         }
         else {
             document.getElementById("root").style.filter = ""
+            document.getElementById("Lightbox").style.display = "none"
         }
     }, [lightVis])
     return (
         <div className="scene scene--card">
-            {lightVis === false ? null : <Lightbox addCardToDeck={addCardToDeck} removeCardFromDeck={removeCardFromDeck} name={name} cmc={cmc} power={power} toughness={toughness} imageUrl={imageUrl} id={id} text={text}></Lightbox>}
+            {lightVis === false ? null : <Lightbox dismissFunction={dismissFunction} addCardToDeck={addCardToDeck} removeCardFromDeck={removeCardFromDeck} name={name} cmc={cmc} power={power} toughness={toughness} imageUrl={trueImageUrl} id={id} text={text}></Lightbox>}
             <h3>{name}</h3>
             <h5>Mana Cost: {cmc}</h5>
             {power === undefined ? null : <h6>Power: {power}</h6>}
             {toughness === undefined ? null : <h6>Toughness: {toughness}</h6>}
             <div className="cardIMG" onClick={() => { setLightVis(true) }}>
-                {imageUrl === undefined ? <img className="generic" src={generic} alt="generic card front" /> : <img src={imageUrl} alt={name} />}
-                {imageUrl === undefined ? <p>{text}</p> : null}
+            <img src={trueImageUrl} alt={name} />
+                
             </div>
             <button type="button" className="add" onClick={(e) => { addCardToDeck({ name, cmc, power, toughness, imageUrl, id }) }}>Add Card</button>
             <button type="button" className="remove" onClick={(e) => { removeCardFromDeck({ name, cmc, power, toughness, imageUrl, id }) }}>Remove Card</button>
-            {/* <div className="card" onClick={(e) => {
-                 e.target.parentNode.classList.toggle('is-flipped')
-            }}>
-                 <div className="card__face card__face--front"></div>
-                <div style={{backgroundImage: `url(${imageUrl})`}} class="card__face card__face--back"></div>
-            </div> */}
         </div>
     )
 }
