@@ -1,7 +1,7 @@
 import "./Card.css"
 import generic from "./generic-card-front.jpg"
 import Lightbox from "./Lightbox.js"
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 
 function Card({ addCardToDeck, removeCardFromDeck, name, cmc, power, toughness, imageUrl, id, text }) {
     const trueImageUrl = imageUrl === undefined ? generic : imageUrl;
@@ -28,8 +28,8 @@ function Card({ addCardToDeck, removeCardFromDeck, name, cmc, power, toughness, 
             {power === undefined ? null : <h6>Power: {power}</h6>}
             {toughness === undefined ? null : <h6>Toughness: {toughness}</h6>}
             <div className="cardIMG" onClick={() => { setLightVis(true) }}>
-            <img src={trueImageUrl} alt={name} />
-                
+                <img src={trueImageUrl} alt={name} />
+
             </div>
             <button type="button" className="add" onClick={(e) => { addCardToDeck({ name, cmc, power, toughness, imageUrl, id }) }}>Add Card</button>
             <button type="button" className="remove" onClick={(e) => { removeCardFromDeck({ name, cmc, power, toughness, imageUrl, id }) }}>Remove Card</button>

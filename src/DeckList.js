@@ -67,9 +67,11 @@ function DeckList({ deckData }) {
     const finalDeck = { name, count: sum, cards: copy, userID }
     if (deckData.id > 0) {
       const response = await backEndAPI.put(`/decks/${deckData.id}`, finalDeck)
+      console.log(response)
     }
     else {
       const response = await backEndAPI.post("/decks", finalDeck)
+      console.log(response)
     }
   }
 

@@ -3,7 +3,7 @@ import mtgAPI from "./api/mtg-api.js"
 import Card from "./Card.js"
 import Loader from "./Loader.js"
 
-function SearchCard({deckData, setDeckData}) {
+function SearchCard({ deckData, setDeckData }) {
     const [cards, setCards] = useState([])
     const [name, setName] = useState("")
     const [desc, setDesc] = useState("")
@@ -15,7 +15,7 @@ function SearchCard({deckData, setDeckData}) {
                 name: name, text: desc
             }
         })
-        const noDuplicates = removeDuplicates((card) => {return (card.name)}, response.data.cards)
+        const noDuplicates = removeDuplicates((card) => { return (card.name) }, response.data.cards)
         console.log(noDuplicates)
         setCards(noDuplicates)
         setVis(false)
@@ -68,7 +68,7 @@ function SearchCard({deckData, setDeckData}) {
 
     function removeDuplicates(keyFn, array) {
         var mySet = new Set();
-        return array.filter(function(x) {
+        return array.filter(function (x) {
             var key = keyFn(x), isNew = !mySet.has(key);
             if (isNew) mySet.add(key);
             return isNew;

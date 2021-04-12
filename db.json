@@ -19,6 +19,11 @@
       "email": "sample@hotmail.com",
       "password": "5432109",
       "id": 6
+    },
+    {
+      "email": "reee@e",
+      "password": "der3",
+      "id": 7
     }
   ],
   "decks": [

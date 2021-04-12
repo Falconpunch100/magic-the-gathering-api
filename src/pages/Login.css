@@ -68,3 +68,9 @@ a {
     cursor: not-allowed;
     opacity: 0.75;
 }
+
+#error {
+    font-size: 0.75rem;
+    color: red;
+    font-weight: 800;
+}
