@@ -76,4 +76,3 @@ function Login({ isSignUpPage }) {
 }
 
 export default Login;
-

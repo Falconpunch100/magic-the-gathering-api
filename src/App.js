@@ -4,27 +4,30 @@ import Login from "./pages/Login.js"
 import CardShop from "./pages/CardShop"
 import Dashboard from "./pages/Dashboard.js"
 import EditPage from "./pages/EditPage.js"
+import ProtectedRoute from "./ProtectedRoute.js"
+import Navbar from "./Navbar.js"
 
 function App() {
   return (
     <main className="App">
+      <Navbar></Navbar>
       <Switch>
-        <Route exact path={ROUTES.HOMEPAGE}>
+        <ProtectedRoute exact path={ROUTES.HOMEPAGE}>
           <Dashboard></Dashboard>
-        </Route>
+        </ProtectedRoute>
         <Route path={ROUTES.LOGIN}>
           <Login isSignUpPage={false}></Login>
         </Route>
         <Route path={ROUTES.SIGNUP}>
           <Login isSignUpPage={true}></Login>
         </Route>
-        <Route path={ROUTES.RANDOMIZER}>
+        <ProtectedRoute path={ROUTES.RANDOMIZER}>
           <CardShop></CardShop>
-        </Route>
-        <Route path={ROUTES.EDIT}>
+        </ProtectedRoute>
+        <ProtectedRoute path={ROUTES.EDIT}>
           <EditPage>
           </EditPage>
-        </Route>
+        </ProtectedRoute>
         <Route>404 Not Found.</Route>
       </Switch>
     </main>

@@ -6,6 +6,7 @@ import SearchCard from "../SearchCard.js"
 
 function EditPage() {
     const { deckID } = useParams()
+    console.log(deckID)
     useEffect(() => {
         async function getDeckByID() {
             const response = await backEndAPI.get(`decks/${deckID}`)

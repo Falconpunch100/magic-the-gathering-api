@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+import * as ROUTES from "./constants/routes.js"
 import { useEffect, useState } from "react"
 import "./DeckList.css"
 import DeckCard from "./DeckCard.js"
@@ -83,7 +85,7 @@ function DeckList({ deckData }) {
           <input value={name} onChange={(e) => { setName(e.target.value) }} id="" placeholder="Please name your deck."></input>
           <button id="reset" onClick={resetDeck}>Reset</button>
           <button id="save" onClick={() => {saveDeck(name)}}>Save</button>
-          <button id="edit" onClick={() => {}}>Edit</button>
+          <Link to={`${ROUTES.EDIT}/${deckData.id}`}><button id="edit">Edit</button></Link>
         </div>
 
         <section className="deckGrid">

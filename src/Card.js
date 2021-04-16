@@ -6,6 +6,7 @@ import { useState, useEffect } from "react"
 function Card({ addCardToDeck, removeCardFromDeck, name, cmc, power, toughness, imageUrl, id, text }) {
     const trueImageUrl = imageUrl === undefined ? generic : imageUrl;
     const [lightVis, setLightVis] = useState(false)
+    const [getter, setGetter] = useState("")
     function dismissFunction() {
         setLightVis(false)
     }
@@ -22,6 +23,7 @@ function Card({ addCardToDeck, removeCardFromDeck, name, cmc, power, toughness, 
     }, [lightVis])
     return (
         <div className="scene scene--card">
+            {getter }
             {lightVis === false ? null : <Lightbox dismissFunction={dismissFunction} addCardToDeck={addCardToDeck} removeCardFromDeck={removeCardFromDeck} name={name} cmc={cmc} power={power} toughness={toughness} imageUrl={trueImageUrl} id={id} text={text}></Lightbox>}
             <h3>{name}</h3>
             <h5>Mana Cost: {cmc}</h5>

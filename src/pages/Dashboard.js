@@ -1,5 +1,6 @@
 import backEndAPI from "../api/back-end.js";
 import DeckList from "../DeckList.js"
+import ProtectedRoute from "../ProtectedRoute.js"
 import { useState, useEffect } from "react"
 
 function Dashboard() {
