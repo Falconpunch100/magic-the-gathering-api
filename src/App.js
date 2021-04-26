@@ -5,13 +5,15 @@ import CardShop from "./pages/CardShop"
 import Dashboard from "./pages/Dashboard.js"
 import EditPage from "./pages/EditPage.js"
 import ProtectedRoute from "./ProtectedRoute.js"
-import Navbar from "./Navbar.js"
+import WelcomePage from "./pages/WelcomePage.js"
 
 function App() {
   return (
     <main className="App">
-      <Navbar></Navbar>
       <Switch>
+        <Route path={ROUTES.WELCOME}>
+          <WelcomePage></WelcomePage>
+        </Route>
         <ProtectedRoute exact path={ROUTES.HOMEPAGE}>
           <Dashboard></Dashboard>
         </ProtectedRoute>

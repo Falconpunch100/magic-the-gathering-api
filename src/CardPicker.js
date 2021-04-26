@@ -2,11 +2,13 @@ import mtgAPI from "./api/mtg-api.js"
 import { useEffect, useState } from "react"
 import "./DeckList.css"
 import Card from "./Card.js"
+import Loader from "./Loader.js"
 
 function CardPicker({ deckData, setDeckData }) {
     let [sets, setSets] = useState([])
     let [chosenSet, setChosenSet] = useState("")
     let [cards, setCards] = useState([])
+    const [vis, setVis] = useState(false)
     useEffect(() => {
         async function fetchSetNames() {
             const response = await mtgAPI.get("sets")
@@ -28,7 +30,6 @@ function CardPicker({ deckData, setDeckData }) {
                 return false;
             }
         })
-        console.log({ searchForCard })
         if (searchForCard !== undefined) {
             searchForCard.count++;
         }
@@ -54,7 +55,7 @@ function CardPicker({ deckData, setDeckData }) {
         if (searchForCard !== -1) {
             let deletedCard = copy[searchForCard]
             deletedCard.count--;
-            if (deletedCard.count === 0) {
+            if (deletedCard.count <= 0) {
                 copy.splice(searchForCard, 1)
             }
         }
@@ -65,16 +66,18 @@ function CardPicker({ deckData, setDeckData }) {
 
     async function handleSubmit(e) {
         e.preventDefault()
+        setVis(true)
         const response = await mtgAPI.get(`sets/${chosenSet}/booster`)
-        console.log(response.data)
         let cardArray = response.data.cards.map((card) => {
             return { cmc: card.cmc, name: card.name, id: card.id, imageUrl: card.imageUrl, power: card.power, toughness: card.toughness, text: card.text }
         })
         setCards(cardArray)
+        setVis(false)
     }
 
     return (
         <div id="left">
+            <Loader visible={vis}></Loader>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="sets">Choose a set:</label>
                 <select name="sets" onChange={(e) => { setChosenSet(e.target.value) }}>

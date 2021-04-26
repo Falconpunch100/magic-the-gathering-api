@@ -2,11 +2,6 @@
   "users": [
     {
       "email": "jordanjubenville@hotmail.com",
-      "password": "c0dingRuleZ",
-      "id": 1
-    },
-    {
-      "email": "jordanjubenville@hotmail.com",
       "password": "CoderZ",
       "id": 4
     },
@@ -14,26 +9,9 @@
       "email": "sampleemail@gmail.com",
       "password": "12345",
       "id": 5
-    },
-    {
-      "email": "sample@hotmail.com",
-      "password": "5432109",
-      "id": 6
-    },
-    {
-      "email": "reee@e",
-      "password": "der3",
-      "id": 7
     }
   ],
   "decks": [
-    {
-      "name": "Deck1",
-      "count": 40,
-      "cards": [],
-      "userID": 1,
-      "id": 1
-    },
     {
       "name": "testDeck",
       "count": 24,
@@ -156,10 +134,75 @@
       "id": 3
     },
     {
-      "name": "",
-      "count": 0,
-      "cards": [],
-      "userID": 4,
+      "name": "New Deck",
+      "count": 9,
+      "cards": [
+        {
+          "name": "Furnace Whelp",
+          "cmc": 4,
+          "power": "2",
+          "toughness": "2",
+          "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130386&type=card",
+          "id": "b9abc758-c583-5d39-b761-9e83496927aa",
+          "count": 1
+        },
+        {
+          "name": "Overgrowth",
+          "cmc": 3,
+          "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=135282&type=card",
+          "id": "f4cf6ecc-c308-5d3f-8358-ab273f375a68",
+          "count": 2
+        },
+        {
+          "name": "Fog Elemental",
+          "cmc": 3,
+          "power": "4",
+          "toughness": "4",
+          "id": "6c515488-2a63-5b1e-84a4-987b5fa993af",
+          "count": 1
+        },
+        {
+          "name": "Puppeteer",
+          "cmc": 3,
+          "power": "1",
+          "toughness": "2",
+          "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129685&type=card",
+          "id": "c7f34f83-c800-5987-8520-5ae1705871d9",
+          "count": 1
+        },
+        {
+          "name": "Reya Dawnbringer",
+          "cmc": 9,
+          "power": "4",
+          "toughness": "6",
+          "id": "341f9c8d-a838-58f9-933b-094c8d889a88",
+          "count": 1
+        },
+        {
+          "name": "Demolish",
+          "cmc": 4,
+          "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129522&type=card",
+          "id": "8e171679-0214-5448-9188-883cfa365c6a",
+          "count": 1
+        },
+        {
+          "name": "Bandage",
+          "cmc": 1,
+          "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=132106&type=card",
+          "id": "6d268c95-c176-5766-9a46-c14f739aba1c",
+          "count": 1
+        },
+        {
+          "name": "Gravedigger",
+          "cmc": 4,
+          "power": "2",
+          "toughness": "2",
+          "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129584&type=card",
+          "id": "71fd9f58-2931-5c3c-957c-d98f2ab02862",
+          "count": 1
+        }
+      ],
+      "userID": "5",
       "id": 4
     }
   ]

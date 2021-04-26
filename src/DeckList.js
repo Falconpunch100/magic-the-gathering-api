@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useRouteMatch } from "react-router-dom"
 import * as ROUTES from "./constants/routes.js"
 import { useEffect, useState } from "react"
 import "./DeckList.css"
@@ -6,6 +6,7 @@ import DeckCard from "./DeckCard.js"
 import backEndAPI from "../src/api/back-end.js"
 
 function DeckList({ deckData }) {
+  const { path } = useRouteMatch()
   let [name, setName] = useState("")
   let [myDeck, setMyDeck] = useState([])
   useEffect(() => {
@@ -23,7 +24,6 @@ function DeckList({ deckData }) {
         return false;
       }
     })
-    console.log({ searchForCard })
     if (searchForCard !== undefined) {
       searchForCard.count++;
     }
@@ -49,12 +49,14 @@ function DeckList({ deckData }) {
       deletedCard.count--;
       if (deletedCard.count === 0) {
         copy.splice(searchForCard, 1)
+        console.log(copy)
       }
     }
     setMyDeck(copy)
   }
 
-  function resetDeck() {
+  async function deleteDeck() {
+    await backEndAPI.delete(`/decks/${deckData.id}`)
     setMyDeck([])
   }
 
@@ -65,37 +67,40 @@ function DeckList({ deckData }) {
       const element = copy[i];
       sum += element.count;
     }
-    let userID = 4;
+    let userID = localStorage.getItem("userID");
     const finalDeck = { name, count: sum, cards: copy, userID }
     if (deckData.id > 0) {
-      const response = await backEndAPI.put(`/decks/${deckData.id}`, finalDeck)
-      console.log(response)
+      await backEndAPI.put(`/decks/${deckData.id}`, finalDeck)
     }
     else {
-      const response = await backEndAPI.post("/decks", finalDeck)
-      console.log(response)
+      await backEndAPI.post("/decks", finalDeck)
     }
   }
 
   return (
-      <div id="right">
-        <h2 id="deckName">{deckData.name}</h2>
-        <div id="save-and-reset">
-          <label>Deck Name</label>
-          <input value={name} onChange={(e) => { setName(e.target.value) }} id="" placeholder="Please name your deck."></input>
-          <button id="reset" onClick={resetDeck}>Reset</button>
-          <button id="save" onClick={() => {saveDeck(name)}}>Save</button>
-          <Link to={`${ROUTES.EDIT}/${deckData.id}`}><button id="edit">Edit</button></Link>
-        </div>
+    <>
+    {
+      myDeck.length > 0 ?
+        <div id="right">
+          <h2 id="deckName">{deckData.name}</h2>
+          <div id="save-and-reset">
+            <label>Deck Name</label>
+            <input value={name} onChange={(e) => { setName(e.target.value) }} id="" placeholder="Please name your deck."></input>
+            <button id="save" onClick={() => { saveDeck(name) }}>Save</button>
+            {path.includes("edit") ? null : <Link to={`${ROUTES.EDIT}/${deckData.id}`}><button id="edit">Edit</button></Link>}
+            <button id="reset" onClick={deleteDeck}>Delete</button>
+          </div>
 
-        <section className="deckGrid">
-          {myDeck.map((card) => {
-            return (
-              <DeckCard key={card.name} card={card} addCardToDeck={addCardToDeck} removeCardFromDeck={removeCardFromDeck}></DeckCard>
-            )
-          })}
-        </section>
-      </div>
+          <section className="deckGrid">
+            {myDeck.map((card) => {
+              return (
+                <DeckCard key={card.name} card={card} addCardToDeck={addCardToDeck} removeCardFromDeck={removeCardFromDeck}></DeckCard>
+              )
+            })}
+          </section>
+        </div> : null
+    }
+    </>
   )
 }
 export default DeckList;

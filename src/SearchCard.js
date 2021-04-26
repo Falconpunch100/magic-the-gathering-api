@@ -16,7 +16,6 @@ function SearchCard({ deckData, setDeckData }) {
             }
         })
         const noDuplicates = removeDuplicates((card) => { return (card.name) }, response.data.cards)
-        console.log(noDuplicates)
         setCards(noDuplicates)
         setVis(false)
     }
@@ -31,7 +30,6 @@ function SearchCard({ deckData, setDeckData }) {
                 return false;
             }
         })
-        console.log({ searchForCard })
         if (searchForCard !== undefined) {
             searchForCard.count++;
         }

@@ -1,23 +1,19 @@
 import CardPicker from "../CardPicker.js"
 import DeckList from "../DeckList.js"
-import { useState } from "react"
+import {useState} from "react"
+import Navbar from "../Navbar.js"
 function CardShop() {
-    // let [deck, setDeck] = useState([])
+    const userID = localStorage.getItem("userID")
     const [deckData, setDeckData ] = useState({
-        name: "", count: 0, cards: [], userID: 4, id: -1
+        name: "", count: 0, cards: [], userID
     })
     return (
         <section className="deckMaker">
+            <Navbar></Navbar>
             <CardPicker deckData={deckData} setDeckData={setDeckData}></CardPicker>
             <DeckList deckData={deckData} ></DeckList>
         </section>
     )
 }
-
-// "name": "Deck1",
-// "count": 40,
-// "cards": [],
-// "userID": 1,
-// "id": 1
 
 export default CardShop;

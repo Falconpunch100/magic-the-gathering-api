@@ -6,24 +6,26 @@ import { useState, useEffect } from "react"
 function Card({ addCardToDeck, removeCardFromDeck, name, cmc, power, toughness, imageUrl, id, text }) {
     const trueImageUrl = imageUrl === undefined ? generic : imageUrl;
     const [lightVis, setLightVis] = useState(false)
-    const [getter, setGetter] = useState("")
     function dismissFunction() {
         setLightVis(false)
     }
     useEffect(() => {
         if (lightVis === true) {
             document.getElementById("root").style.filter = "blur(3px) brightness(50%)"
+            document.getElementsByTagName("html")[0].style.overflowY = "hidden"
             document.getElementById("Lightbox").style.display = "initial"
+            document.getElementsByClassName("App")[0].style.marginTop = "40px"
 
         }
         else {
             document.getElementById("root").style.filter = ""
+            document.getElementsByTagName("html")[0].style.overflowY = ""
             document.getElementById("Lightbox").style.display = "none"
+            document.getElementsByClassName("App")[0].style.marginTop = "80px"
         }
     }, [lightVis])
     return (
         <div className="scene scene--card">
-            {getter }
             {lightVis === false ? null : <Lightbox dismissFunction={dismissFunction} addCardToDeck={addCardToDeck} removeCardFromDeck={removeCardFromDeck} name={name} cmc={cmc} power={power} toughness={toughness} imageUrl={trueImageUrl} id={id} text={text}></Lightbox>}
             <h3>{name}</h3>
             <h5>Mana Cost: {cmc}</h5>
