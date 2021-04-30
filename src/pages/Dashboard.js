@@ -22,7 +22,7 @@ function Dashboard() {
                 <h2>You don't have any decks yet... Start making some by clicking on "Create Deck" above!</h2>
             </div> : null}
             {allDecks.map((oneDeck) => {
-                return <DeckList key={oneDeck.id} deckData={oneDeck}></DeckList>
+                return <DeckList onDashboard={true} key={oneDeck.id} deckData={oneDeck}></DeckList>
             })}
         </section>
         </>

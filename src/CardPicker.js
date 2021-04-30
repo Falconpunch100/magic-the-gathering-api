@@ -66,13 +66,15 @@ function CardPicker({ deckData, setDeckData }) {
 
     async function handleSubmit(e) {
         e.preventDefault()
-        setVis(true)
-        const response = await mtgAPI.get(`sets/${chosenSet}/booster`)
-        let cardArray = response.data.cards.map((card) => {
-            return { cmc: card.cmc, name: card.name, id: card.id, imageUrl: card.imageUrl, power: card.power, toughness: card.toughness, text: card.text }
-        })
-        setCards(cardArray)
-        setVis(false)
+        if (chosenSet !== "") {
+            setVis(true)
+            const response = await mtgAPI.get(`sets/${chosenSet}/booster`)
+            let cardArray = response.data.cards.map((card) => {
+                return { cmc: card.cmc, name: card.name, id: card.id, imageUrl: card.imageUrl, power: card.power, toughness: card.toughness, text: card.text }
+            })
+            setCards(cardArray)
+            setVis(false)
+        }
     }
 
     return (

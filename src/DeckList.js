@@ -5,7 +5,7 @@ import "./DeckList.css"
 import DeckCard from "./DeckCard.js"
 import backEndAPI from "../src/api/back-end.js"
 
-function DeckList({ deckData }) {
+function DeckList({ deckData, onDashboard, setDeckData }) {
   const { path } = useRouteMatch()
   let [name, setName] = useState("")
   let [myDeck, setMyDeck] = useState([])
@@ -32,6 +32,7 @@ function DeckList({ deckData }) {
       copy.push(newCard)
     }
     setMyDeck(copy)
+    setDeckData({...deckData, cards: copy})
   }
 
   function removeCardFromDeck(cardToRemove) {
@@ -53,6 +54,7 @@ function DeckList({ deckData }) {
       }
     }
     setMyDeck(copy)
+    setDeckData({...deckData, cards: copy})
   }
 
   async function deleteDeck() {
@@ -94,7 +96,7 @@ function DeckList({ deckData }) {
           <section className="deckGrid">
             {myDeck.map((card) => {
               return (
-                <DeckCard key={card.name} card={card} addCardToDeck={addCardToDeck} removeCardFromDeck={removeCardFromDeck}></DeckCard>
+                <DeckCard onDashboard={onDashboard} key={card.name} card={card} addCardToDeck={addCardToDeck} removeCardFromDeck={removeCardFromDeck}></DeckCard>
               )
             })}
           </section>

@@ -11,7 +11,7 @@ function CardShop() {
         <section className="deckMaker">
             <Navbar></Navbar>
             <CardPicker deckData={deckData} setDeckData={setDeckData}></CardPicker>
-            <DeckList deckData={deckData} ></DeckList>
+            <DeckList deckData={deckData} setDeckData={setDeckData}></DeckList>
         </section>
     )
 }

@@ -32,7 +32,7 @@ function EditPage() {
         <section className="deckMaker">
             <Navbar></Navbar>
             <SearchCard deckData={deckData} setDeckData={setDeckData}></SearchCard>
-            <DeckList deckData={deckData}></DeckList>
+            <DeckList deckData={deckData} setDeckData={setDeckData}></DeckList>
         </section>
     )
 }
