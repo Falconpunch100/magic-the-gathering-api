@@ -44,7 +44,6 @@ function Login({ isSignUpPage }) {
             setError("Username or Password is incorrect. Please try again.")
         }
         else {
-            console.log("Login successful.")
             let userID = response.data[0].id
             localStorage.setItem("userID", userID)
             history.push(HOMEPAGE)

@@ -1,5 +1,16 @@
+body {
+    overflow-x: hidden;
+}
+
 .welcome {
     width: 100vw;
-    height: 100vh;
-    border: 1px red solid;
+    height: auto;
+    background-color: rgb(16, 50, 70);
+}
+
+#color-white {
+    text-align: center;
+    color: white;
+    padding: 100px 0px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }

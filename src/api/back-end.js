@@ -1,5 +1,5 @@
 import axios from "axios"
-let baseURL = "http://localhost:3000"
+let baseURL = "https://magic-the-gathering-backend.herokuapp.com/"
 let backEndAPI = axios.create({
     baseURL
 })

@@ -50,7 +50,6 @@ function DeckList({ deckData, onDashboard, setDeckData }) {
       deletedCard.count--;
       if (deletedCard.count === 0) {
         copy.splice(searchForCard, 1)
-        console.log(copy)
       }
     }
     setMyDeck(copy)

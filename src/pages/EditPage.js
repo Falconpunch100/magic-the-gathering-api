@@ -14,8 +14,7 @@ function EditPage() {
     useEffect(() => {
         async function getDeckByID() {
             const response = await backEndAPI.get(`decks/${deckID}`)
-            console.log(response.data)
-            if (Number(userID) === response.data.userID) {
+            if (Number(userID) === Number(response.data.userID)) {
                 setDeckData(response.data)
             }
             else {
@@ -24,7 +23,7 @@ function EditPage() {
             }
         }
         getDeckByID()
-    }, [deckID]);
+    }, [deckID, userID, history]);
     const [deckData, setDeckData] = useState({
         name: "", count: 0, cards: [], userID, id: -1
     })
