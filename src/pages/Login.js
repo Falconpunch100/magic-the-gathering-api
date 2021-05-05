@@ -28,6 +28,7 @@ function Login({ isSignUpPage }) {
                 await backEndAPI.post("/users", {
                     email, password
                 });
+                history.push(LOGIN)
             }
             else {
                 setError("That email already exists. Please try another one.")
