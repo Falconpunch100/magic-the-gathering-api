@@ -1,7 +1,7 @@
 import "./Login.css"
 import { Link, useHistory } from "react-router-dom"
 import { LOGIN, SIGNUP, HOMEPAGE } from "../constants/routes.js"
-import { useState, useEffect} from "react"
+import { useState, useEffect } from "react"
 import { ValidateEmail } from "../utils"
 import backEndAPI from "../api/back-end.js"
 import Navbar from "../Navbar.js"
@@ -51,26 +51,26 @@ function Login({ isSignUpPage }) {
     }
     return (
         <>
-        <Navbar></Navbar>
-        <div className="container">
-            <div className="login-signup-page"></div>
-            <section className="inputs">
-                <form onSubmit={isSignUpPage ? handleSignup : handleLogin}>
-                    {isSignUpPage ? <h3>Sign Up</h3> : <h3>Please Log In</h3>}
-                    {error ? <p id="error">{error}</p>: null}
-                    <label htmlFor="username">
-                        <input value={email} id="username" placeholder="Enter Email Address" required type="text" onChange={(e) => { setEmail(e.target.value) }} />
-                    </label>
-                    <label htmlFor="password">
-                        <input value={password} minLength="4" maxLength="12" required placeholder="Enter Password" type="password" name="" id="password" onChange={(e) => { setPassword(e.target.value) }} />
-                    </label>
-                    <button disabled={emailSuccess ? false : true} type="submit" id="login-signup" className={emailSuccess ? "" : "disabled"}>Login</button>
-                </form>
+            <Navbar></Navbar>
+            <div className="container">
+                <div className="login-signup-page"></div>
+                <section className="inputs">
+                    <form onSubmit={isSignUpPage ? handleSignup : handleLogin}>
+                        {isSignUpPage ? <h3>Sign Up</h3> : <h3>Please Log In</h3>}
+                        {error ? <p id="error">{error}</p> : null}
+                        <label htmlFor="username">
+                            <input value={email} id="username" placeholder="Enter Email Address" required type="text" onChange={(e) => { setEmail(e.target.value) }} />
+                        </label>
+                        <label htmlFor="password">
+                            <input value={password} minLength="4" maxLength="12" required placeholder="Enter Password" type="password" name="" id="password" onChange={(e) => { setPassword(e.target.value) }} />
+                        </label>
+                        <button disabled={emailSuccess ? false : true} type="submit" id="login-signup" className={emailSuccess ? "" : "disabled"}>{isSignUpPage === true ? "Sign Up" : "Login"}</button>
+                    </form>
 
-                {isSignUpPage ? <p>Already have an account? <Link to={LOGIN}>Log in</Link></p>:
-                <p>Don't have an account? Sign up <Link to={SIGNUP}>here</Link>.</p>}
-            </section>
-        </div>
+                    {isSignUpPage ? <p>Already have an account? <Link to={LOGIN}>Log in</Link></p> :
+                        <p>Don't have an account? Sign up <Link to={SIGNUP}>here</Link>.</p>}
+                </section>
+            </div>
         </>
     )
 }
